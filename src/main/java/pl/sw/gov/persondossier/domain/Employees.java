@@ -51,11 +51,11 @@ public class Employees {
     private Adress adress;
 
     @ManyToOne
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "department_id", unique = true)
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "permision_level_id")
+    @JoinColumn(name = "permision_level_id", unique = true)
     private PermisionLevel permisionLevel;
 
 }

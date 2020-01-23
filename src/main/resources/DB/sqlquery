@@ -1,0 +1,23 @@
+INSERT INTO city (name) VALUES ('Opole');
+INSERT INTO city (name) VALUES ('Wrocław');
+INSERT INTO city (name) VALUES ('Kraków');
+INSERT INTO city (name) VALUES ('Poznań');
+INSERT INTO city (name) VALUES ('Kluczbork');
+INSERT INTO city (name) VALUES ('Warszawa');
+INSERT INTO city (name) VALUES ('Oława');
+
+
+INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa','c','1');
+INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa1','1c','2');
+INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa2','2c','3');
+INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa3','3c','4');
+INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa4','4c','1');
+
+INSERT INTO permision_level (description, name, priviliges) VALUES ('Osoba zajmująca się systemami TI', 'administrator', 'admin');
+INSERT INTO permision_level (description, name, priviliges) VALUES ('Użytkownik podstawowy', 'użytkownik', 'user');
+INSERT INTO permision_level (description, name, priviliges) VALUES ('Użytkownik rozszeżony', 'super użytkownik', 'super user');
+
+INSERT INTO department (description, long_name, short_name) values ('Dział Kwatermistrzowski', 'Dział Kwatermistrzowski', 'DKW');
+INSERT INTO department (description, long_name, short_name) values ('Dział zajmujący się sprawami informatycznymi', 'Dział Informatyzacji i łączności', 'DIL');
+INSERT INTO department (description, long_name, short_name) values ('Dział zajmujący się sprawami finanosowymi', 'Dział Finansowy', 'DF');
+
