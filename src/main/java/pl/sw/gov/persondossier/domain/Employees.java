@@ -47,15 +47,15 @@ public class Employees {
     private LocalDateTime birth_date;
 
     @OneToOne
-    @JoinColumn(name = "adress_id", unique = true)
+    @JoinColumn(name = "adress_id")
     private Adress adress;
 
     @ManyToOne
-    @JoinColumn(name = "department_id", unique = true)
+    @JoinColumn(name = "department_id")
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "permision_level_id", unique = true)
+    @JoinColumn(name = "permision_level_id")
     private PermisionLevel permisionLevel;
 
 }
