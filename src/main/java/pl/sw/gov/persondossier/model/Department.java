@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.domain;
+package pl.sw.gov.persondossier.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Setter
 @Getter
@@ -23,6 +24,7 @@ public class Department {
 
     private String short_name;
 
+    @Size(max = 300)
     private String description;
 
 

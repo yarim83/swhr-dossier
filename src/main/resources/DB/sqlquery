@@ -7,20 +7,20 @@ INSERT INTO city (name) VALUES ('Warszawa');
 INSERT INTO city (name) VALUES ('Oława');
 
 
-INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa','c','1');
-INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa1','1c','2');
-INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa2','2c','3');
-INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa3','3c','4');
-INSERT INTO adress (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa4','4c','1');
+INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa','c','1');
+INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa1','1c','2');
+INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa2','2c','3');
+INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa3','3c','4');
+INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa4','4c','1');
 
-INSERT INTO permision_level (description, name, priviliges) VALUES ('Osoba zajmująca się systemami TI', 'administrator', 'admin');
-INSERT INTO permision_level (description, name, priviliges) VALUES ('Użytkownik podstawowy', 'użytkownik', 'user');
-INSERT INTO permision_level (description, name, priviliges) VALUES ('Użytkownik rozszeżony', 'super użytkownik', 'super user');
+INSERT INTO permission_level (description, name, priviliges) VALUES ('Osoba zajmująca się systemami TI', 'administrator', 'admin');
+INSERT INTO permission_level (description, name, priviliges) VALUES ('Użytkownik podstawowy', 'użytkownik', 'user');
+INSERT INTO permission_level (description, name, priviliges) VALUES ('Użytkownik rozszeżony', 'super użytkownik', 'super user');
 
 INSERT INTO department (description, long_name, short_name) values ('Dział Kwatermistrzowski', 'Dział Kwatermistrzowski', 'DKW');
 INSERT INTO department (description, long_name, short_name) values ('Dział zajmujący się sprawami informatycznymi', 'Dział Informatyzacji i łączności', 'DIL');
 INSERT INTO department (description, long_name, short_name) values ('Dział zajmujący się sprawami finanosowymi', 'Dział Finansowy', 'DF');
 
-INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, adress_id, department_id, permision_level_id) VALUES (now(), 'tomek@sw.pl', 'Tomek', 'Smereczyński', '55053017675', 'link', 'male', 1,1,1);
-INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, adress_id, department_id, permision_level_id) VALUES (now(), 'tomek@sw.pl1', 'Tomek1', 'Smereczyński1', '65012314266', 'link1', 'female', 2,2,2);
-INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, adress_id, department_id, permision_level_id) VALUES (now(), 'tomek@sw.pl2', 'Tomek2', 'Smereczyński2', '98101599833', 'link2', 'female', 2,1,2);
+INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, address_id, department_id, permission_level_id) VALUES (now(), 'tomek@sw.pl', 'Tomek', 'Smereczyński', '55053017675', 'link', 'male', 1,1,1);
+INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, address_id, department_id, permission_level_id) VALUES (now(), 'tomek@sw.pl1', 'Tomek1', 'Smereczyński1', '65012314266', 'link1', 'female', 2,2,2);
+INSERT INTO employees (birth_date, email, first_name, lastname, pesel, photo_link, sex, address_id, department_id, permission_level_id) VALUES (now(), 'tomek@sw.pl2', 'Tomek2', 'Smereczyński2', '98101599833', 'link2', 'female', 2,1,2);

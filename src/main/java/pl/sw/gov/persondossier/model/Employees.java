@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.domain;
+package pl.sw.gov.persondossier.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -46,16 +46,16 @@ public class Employees {
 
     private LocalDateTime birth_date;
 
-    @OneToOne
-    @JoinColumn(name = "adress_id")
-    private Adress adress;
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "permision_level_id")
-    private PermisionLevel permisionLevel;
+    @JoinColumn(name = "permission_level_id")
+    private PermissionLevel permissionLevel;
 
 }

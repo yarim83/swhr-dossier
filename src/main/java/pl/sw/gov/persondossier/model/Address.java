@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.domain;
+package pl.sw.gov.persondossier.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "adress")
-public class Adress {
+@Table
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +35,5 @@ public class Adress {
 
     @ManyToOne
     @JoinColumn(name = "city_id")
-    private Adress adress;
+    private Address address;
 }

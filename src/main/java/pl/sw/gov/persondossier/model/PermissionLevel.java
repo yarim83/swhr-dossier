@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.domain;
+package pl.sw.gov.persondossier.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "permision_level")
-public class PermisionLevel {
+@Table(name = "permission_level")
+public class PermissionLevel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.domain;
+package pl.sw.gov.persondossier.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
