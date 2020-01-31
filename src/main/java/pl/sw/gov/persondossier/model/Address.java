@@ -35,5 +35,5 @@ public class Address {
 
     @ManyToOne
     @JoinColumn(name = "city_id")
-    private Address address;
+    private City city;
 }
