@@ -1,10 +1,7 @@
 package pl.sw.gov.persondossier.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sw.gov.persondossier.model.Employees;
 import pl.sw.gov.persondossier.model.PermissionLevel;
 import pl.sw.gov.persondossier.repository.EmployeesRepository;
@@ -28,17 +25,18 @@ public class EmployeesController {
         return employeesRepository.findById(id).get();
     }
 
-
-    public void add() {
-
+    @PostMapping("/")
+    public void add(@RequestBody Employees employees) {
+        employeesRepository.save(employees);
     }
 
-
-    public void update() {
-
+    @PutMapping("/{id}")
+    public void update(@RequestBody Employees employees) {
+        employeesRepository.save(employeesRepository.findById(employees.getId()).get());
     }
 
-    public void delete() {
-
+    @DeleteMapping("/{id}")
+    public void delete(@RequestBody long id) {
+        employeesRepository.delete(employeesRepository.getOne(id));
     }
 }

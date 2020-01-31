@@ -25,16 +25,18 @@ public class AddressController {
         return addressRepository.findById(id).get();
     }
 
-
-    public void add() {
-
+    @PostMapping("/")
+    public void add(@RequestBody Address address) {
+        addressRepository.save(address);
     }
 
-    public void update() {
-
+    @PutMapping("/{id}")
+    public void update(@RequestBody Address address) {
+        addressRepository.save(addressRepository.findById(address.getId()).get());
     }
 
-    public void delete() {
-
+    @DeleteMapping("/{id}")
+    public void delete(@RequestBody long id) {
+        addressRepository.delete(addressRepository.getOne(id));
     }
 }

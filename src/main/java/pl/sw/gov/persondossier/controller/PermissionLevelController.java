@@ -26,18 +26,18 @@ public class PermissionLevelController {
         return permissionLevelRepository.findById(id).get();
     }
 
-
-    public void add() {
-
+    @PostMapping("/")
+    public void add(@RequestBody PermissionLevel permissionLevel) {
+        permissionLevelRepository.save(permissionLevel);
     }
 
-
-    public void update() {
-
+    @PutMapping("{id}")
+    public void update(@RequestBody PermissionLevel permissionLevel) {
+        permissionLevelRepository.save(permissionLevelRepository.findById(permissionLevel.getId()).get());
     }
 
-
-    public void delete() {
-
+    @DeleteMapping("/{id}")
+    public void delete(@RequestBody long id) {
+        permissionLevelRepository.delete(permissionLevelRepository.getOne(id));
     }
 }

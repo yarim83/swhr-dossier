@@ -26,18 +26,18 @@ public class DepartmentController {
         return departmentRepository.findById(id).get();
     }
 
-
-    public void add() {
-
+    @PostMapping("/")
+    public void add(@RequestBody Department department) {
+        departmentRepository.save(department);
     }
 
-
-    public void update() {
-
+    @PutMapping("/{id}")
+    public void update(@RequestBody Department department) {
+        departmentRepository.save(departmentRepository.findById(department.getId()).get());
     }
 
-
-    public void delete() {
-
+    @DeleteMapping("/{id}")
+    public void delete(@RequestBody long id) {
+        departmentRepository.delete(departmentRepository.getOne(id));
     }
 }
