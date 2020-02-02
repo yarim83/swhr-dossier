@@ -1,17 +1,8 @@
-INSERT INTO city (name) VALUES ('Opole');
-INSERT INTO city (name) VALUES ('Wrocław');
-INSERT INTO city (name) VALUES ('Kraków');
-INSERT INTO city (name) VALUES ('Poznań');
-INSERT INTO city (name) VALUES ('Kluczbork');
-INSERT INTO city (name) VALUES ('Warszawa');
-INSERT INTO city (name) VALUES ('Oława');
-
-
-INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa','c','1');
-INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa1','1c','2');
-INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa2','2c','3');
-INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa3','3c','4');
-INSERT INTO address (country, street, street_number, city_id) VALUES ('Polska', 'Bajkowa4','4c','1');
+INSERT INTO address (city ,country, street, street_number) VALUES ('Opole','Polska', 'Bajkowa','c');
+INSERT INTO address (city ,country, street, street_number) VALUES ('Wrocław','Polska', 'Bajkowa1','1c');
+INSERT INTO address (city ,country, street, street_number) VALUES ('Kluczbork','Polska', 'Bajkowa2','2c');
+INSERT INTO address (city ,country, street, street_number) VALUES ('Warszwa','Polska', 'Bajkowa3','3c');
+INSERT INTO address (city ,country, street, street_number) VALUES ('Bydgoszcz','Polska', 'Bajkowa4','4c');
 
 INSERT INTO permission_level (description, name, priviliges) VALUES ('Osoba zajmująca się systemami TI', 'administrator', 'admin');
 INSERT INTO permission_level (description, name, priviliges) VALUES ('Użytkownik podstawowy', 'użytkownik', 'user');

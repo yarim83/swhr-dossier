@@ -1,10 +1,8 @@
-package pl.sw.gov.persondossier.controller;
+package pl.sw.gov.persondossier.employees.adress;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.sw.gov.persondossier.model.Address;
-import pl.sw.gov.persondossier.model.PermissionLevel;
-import pl.sw.gov.persondossier.repository.AddressRepository;
 
 import java.util.List;
 
@@ -32,11 +30,11 @@ public class AddressController {
 
     @PutMapping("/{id}")
     public void update(@RequestBody Address address) {
-        addressRepository.save(addressRepository.findById(address.getId()).get());
+        addressRepository.save(address);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@RequestBody long id) {
+    public void delete(@PathVariable long id) {
         addressRepository.delete(addressRepository.getOne(id));
     }
 }

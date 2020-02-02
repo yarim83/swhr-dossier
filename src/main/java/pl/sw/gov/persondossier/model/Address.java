@@ -15,14 +15,10 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table
-public class Address {
+public class Address extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "{user.firstName.notNull}")
+    @NotEmpty(message = "{user.firstName.size}")
     private String street;
 
     @NotEmpty
@@ -31,9 +27,10 @@ public class Address {
 
     @NotEmpty
     @NotNull
+    private String city;
+
+    @NotEmpty
+    @NotNull
     private String country;
 
-    @ManyToOne
-    @JoinColumn(name = "city_id")
-    private City city;
 }

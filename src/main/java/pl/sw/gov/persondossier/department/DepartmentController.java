@@ -1,10 +1,8 @@
-package pl.sw.gov.persondossier.controller;
+package pl.sw.gov.persondossier.department;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.sw.gov.persondossier.model.Department;
-import pl.sw.gov.persondossier.model.PermissionLevel;
-import pl.sw.gov.persondossier.repository.DepartmentRepository;
 
 import java.util.List;
 
@@ -33,11 +31,11 @@ public class DepartmentController {
 
     @PutMapping("/{id}")
     public void update(@RequestBody Department department) {
-        departmentRepository.save(departmentRepository.findById(department.getId()).get());
+        departmentRepository.save(department);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@RequestBody long id) {
+    public void delete(@PathVariable long id) {
         departmentRepository.delete(departmentRepository.getOne(id));
     }
 }

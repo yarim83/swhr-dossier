@@ -13,15 +13,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "permission_level")
-public class PermissionLevel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class PermissionLevel extends AbstractEntity{
 
     private String name;
 
     private String description;
 
     private String priviliges;
+
 }

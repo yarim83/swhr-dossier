@@ -3,7 +3,7 @@ package pl.sw.gov.persondossier.converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import pl.sw.gov.persondossier.model.Address;
-import pl.sw.gov.persondossier.repository.AddressRepository;
+import pl.sw.gov.persondossier.employees.adress.AddressRepository;
 
 public class AddressConverter implements Converter<String, Address> {
 

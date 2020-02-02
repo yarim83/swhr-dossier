@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.time.LocalDateTime;
 
 @Getter
@@ -18,11 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "employees")
-public class Employees {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Employees extends AbstractEntity{
 
     @NotEmpty
     @NotNull
@@ -33,9 +31,14 @@ public class Employees {
     private String lastname;
 
     @Email
+    @UniqueElements
+    @NotNull
+    @NotEmpty
     private String email;
 
     @PESEL
+    @NotNull
+    @NotEmpty
     private String pesel;
 
     @NotEmpty
@@ -44,6 +47,8 @@ public class Employees {
 
     private String photo_link;
 
+    @NotNull
+    @Past
     private LocalDateTime birth_date;
 
     @OneToOne(cascade = CascadeType.REMOVE)
