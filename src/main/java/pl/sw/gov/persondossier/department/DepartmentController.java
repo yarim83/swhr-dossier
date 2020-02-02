@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.sw.gov.persondossier.model.Department;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -25,7 +26,7 @@ public class DepartmentController {
     }
 
     @PostMapping("/")
-    public void add(@RequestBody Department department) {
+    public void add(@RequestBody @Valid Department department) {
         departmentRepository.save(department);
     }
 

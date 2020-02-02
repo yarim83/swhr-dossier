@@ -51,7 +51,7 @@ public class Employees extends AbstractEntity{
     @Past
     private LocalDateTime birth_date;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
