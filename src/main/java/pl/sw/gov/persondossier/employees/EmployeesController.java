@@ -1,7 +1,11 @@
 package pl.sw.gov.persondossier.employees;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import pl.sw.gov.persondossier.employees.adress.EmployeesRepositoryPaging;
 import pl.sw.gov.persondossier.model.Employees;
 
 import java.util.List;
@@ -11,11 +15,17 @@ import java.util.List;
 @RequestMapping("/api/employees")
 public class EmployeesController {
     private final EmployeesRepository employeesRepository;
-
+    private final EmployeesRepositoryPaging employeesRepositoryPaging;
 
     @GetMapping("/")
     public List<Employees> getAll() {
         return employeesRepository.findAll();
+    }
+
+    @GetMapping("/list")
+    public Page<Employees> getAllPage(@RequestParam(defaultValue = "0") int page) {
+        Pageable test = PageRequest.of(page,10);
+        return employeesRepositoryPaging.findAll(test);
     }
 
     @GetMapping("/{id}")
