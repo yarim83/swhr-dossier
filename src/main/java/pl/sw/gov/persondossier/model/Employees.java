@@ -1,5 +1,8 @@
 package pl.sw.gov.persondossier.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +15,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -30,26 +34,28 @@ public class Employees extends AbstractEntity{
     @NotNull
     private String lastname;
 
-    @Email
-    @UniqueElements
-    @NotNull
-    @NotEmpty
+//    @Email
+//    @UniqueElements
+//    @NotNull
+//    @NotEmpty
     private String email;
 
-    @PESEL
-    @NotNull
-    @NotEmpty
+//    @PESEL
+//    @NotNull
+//    @NotEmpty
     private String pesel;
 
-    @NotEmpty
-    @NotNull
+//    @NotEmpty
+//    @NotNull
     private String sex;
 
     private String photo_link;
 
-    @NotNull
+//    @NotNull
     @Past
-    private LocalDateTime birth_date;
+//    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birth_date;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
