@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "permission_level")
+@Table(name = "permissionLevel")
 public class PermissionLevel extends AbstractEntity{
 
     private String name;

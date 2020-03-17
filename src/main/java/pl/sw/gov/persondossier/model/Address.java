@@ -17,20 +17,20 @@ import javax.validation.constraints.NotNull;
 @Table
 public class Address extends AbstractEntity {
 
-    @NotNull(message = "{address.name.notNull}")
-    @NotEmpty(message = "{address.name.notEmpty}")
+    //    @NotNull
+    //   @NotEmpty
     private String street;
 
-    @NotNull(message = "{address.name.notNull}")
-    @NotEmpty(message = "{address.name.notEmpty}")
-    private String street_number;
+    //    @NotNull
+    //    @NotEmpty
+    private String streetNumber;
 
-    @NotNull(message = "{address.name.notNull}")
-    @NotEmpty(message = "{address.name.notEmpty}")
+    //    @NotNull
+    //    @NotEmpty
     private String city;
-
-    @NotNull(message = "{address.name.notNull}")
-    @NotEmpty(message = "{address.name.notEmpty}")
+//
+//    @NotNull
+//    @NotEmpty
     private String country;
 
 }

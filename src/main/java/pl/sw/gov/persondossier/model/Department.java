@@ -17,9 +17,9 @@ import javax.validation.constraints.Size;
 @Table(name = "department")
 public class Department extends AbstractEntity{
 
-    private String long_name;
+    private String longName;
 
-    private String short_name;
+    private String shortName;
 
     @Size(max = 300)
     private String description;

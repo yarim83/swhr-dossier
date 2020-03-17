@@ -1,4 +1,4 @@
-package pl.sw.gov.persondossier.employees.adress;
+package pl.sw.gov.persondossier.employees;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import pl.sw.gov.persondossier.model.Employees;

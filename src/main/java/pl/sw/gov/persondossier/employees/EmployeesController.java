@@ -5,7 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import pl.sw.gov.persondossier.employees.adress.EmployeesRepositoryPaging;
 import pl.sw.gov.persondossier.model.Employees;
 
 import java.util.List;
