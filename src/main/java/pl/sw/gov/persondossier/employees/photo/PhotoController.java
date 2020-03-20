@@ -2,7 +2,6 @@ package pl.sw.gov.persondossier.employees.photo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,28 +23,37 @@ public class PhotoController {
     private final PhotoRepository photoRepository;
 
     @PostMapping("/upload")
-    public BodyBuilder uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
+    public ResponseEntity<Photo> uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
         System.out.println("Original photo Byte Size = " + file.getBytes().length);
         Photo photo = new Photo(file.getOriginalFilename(), file.getContentType(), compressByte(file.getBytes()));
 
         photoRepository.save(photo);
 
-        return ResponseEntity.status(HttpStatus.OK);
+        return new ResponseEntity<Photo>(photo,HttpStatus.OK);
     }
 
     @GetMapping("/")
     public List<Photo> getAll() {
         return photoRepository.findAll();
     }
+
     // TEST
 //    @GetMapping("/{id}")
 //    public Photo getById(@PathVariable long id){
 //        return photoRepository.findById(id).get();
 //    }
 
-    @GetMapping(path = {"/{imageName}"})
-    public Photo getPhoto(@PathVariable("imageName") String imageName) throws IOException{
-        final Optional<Photo> retriveImage = photoRepository.findByName(imageName);
+//    @GetMapping(path = {"/{imageName}"})
+//    public Photo getPhoto(@PathVariable("imageName") String imageName) throws IOException{
+//        final Optional<Photo> retriveImage = photoRepository.findByName(imageName);
+//        Photo photo = new Photo(retriveImage.get().getName(), retriveImage.get().getType(),decompressByte(retriveImage.get().getPicByte()));
+//        return photo;
+//    }
+
+
+    @GetMapping(path = {"/{id}"})
+    public Photo getPhoto(@PathVariable long id) throws IOException{
+        final Optional<Photo> retriveImage = photoRepository.findById(id);
         Photo photo = new Photo(retriveImage.get().getName(), retriveImage.get().getType(),decompressByte(retriveImage.get().getPicByte()));
         return photo;
     }
