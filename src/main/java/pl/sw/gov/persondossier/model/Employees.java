@@ -49,15 +49,13 @@ public class Employees extends AbstractEntity{
 //    @NotNull
     private String sex;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "photo_id")
-    private Photo photo;
+    private long photoId;
 
 //    @NotNull
    // @Past
 //    @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birth_date;
+    private LocalDate birthDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")

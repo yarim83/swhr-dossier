@@ -37,12 +37,6 @@ public class PhotoController {
         return photoRepository.findAll();
     }
 
-    // TEST
-//    @GetMapping("/{id}")
-//    public Photo getById(@PathVariable long id){
-//        return photoRepository.findById(id).get();
-//    }
-
 //    @GetMapping(path = {"/{imageName}"})
 //    public Photo getPhoto(@PathVariable("imageName") String imageName) throws IOException{
 //        final Optional<Photo> retriveImage = photoRepository.findByName(imageName);
