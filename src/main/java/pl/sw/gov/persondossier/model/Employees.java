@@ -1,22 +1,14 @@
 package pl.sw.gov.persondossier.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.hibernate.validator.constraints.pl.PESEL;
+import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -24,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "employees")
-public class Employees extends AbstractEntity{
+public class Employees extends AbstractEntity {
 
     @NotEmpty
     @NotNull
@@ -34,28 +26,29 @@ public class Employees extends AbstractEntity{
     @NotNull
     private String lastName;
 
-//    @Email
+    @Email
 //    @UniqueElements
-//    @NotNull
-//    @NotEmpty
+    @NotNull
+    @NotEmpty
     private String email;
 
-//    @PESEL
-//    @NotNull
-//    @NotEmpty
+    @NotNull
+    @NotEmpty
     private String pesel;
 
-//    @NotEmpty
-//    @NotNull
+    @NotEmpty
+    @NotNull
     private String sex;
 
     private long photoId;
 
-//    @NotNull
-   // @Past
-//    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @NotNull
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @CreatedDate()
+    private LocalDate createdDate = LocalDate.now();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")

@@ -4,10 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sw.gov.persondossier.model.Employees;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,13 +26,18 @@ public class EmployeesController {
 
     @GetMapping("/list")
     public Page<Employees> getAllPage(@RequestParam(defaultValue = "0") int page) {
-        Pageable test = PageRequest.of(page,10);
-        return employeesRepositoryPaging.findAll(test);
+        Pageable pageable2 = PageRequest.of(page,10);
+        return employeesRepositoryPaging.findAll(pageable2);
     }
 
     @GetMapping("/{id}")
     public Employees getById(@PathVariable long id) {
         return employeesRepository.findById(id).get();
+    }
+
+    @GetMapping("/sort")
+    public Set<Employees> findByLastNameAndSort(@RequestParam("lastName") String lastName) {
+        return employeesRepository.findByLastName(lastName);
     }
 
     @PostMapping("/")
