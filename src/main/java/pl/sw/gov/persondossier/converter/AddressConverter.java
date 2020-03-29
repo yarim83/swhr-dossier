@@ -11,7 +11,7 @@ public class AddressConverter implements Converter<String, Address> {
     private AddressRepository addressRepository;
 
     @Override
-    public Address convert(String s){
-        return addressRepository.findById(Long.parseLong(s)).orElseThrow(IllegalArgumentException::new);
+    public Address convert(String string){
+        return addressRepository.findById(Long.parseLong(string)).orElseThrow(IllegalArgumentException::new);
     }
 }

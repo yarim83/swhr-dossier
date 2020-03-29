@@ -1,8 +1,6 @@
 package pl.sw.gov.persondossier.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @MappedSuperclass
+@ToString
 public abstract class AbstractEntity {
 
     @Id
@@ -31,12 +28,5 @@ public abstract class AbstractEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "AbstractEntity{" +
-                "id=" + id +
-                '}';
     }
 }

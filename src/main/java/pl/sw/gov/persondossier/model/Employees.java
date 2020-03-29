@@ -1,8 +1,10 @@
 package pl.sw.gov.persondossier.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -10,10 +12,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "employees")
 public class Employees extends AbstractEntity {
@@ -47,6 +46,7 @@ public class Employees extends AbstractEntity {
     private LocalDate birthDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonIgnore
     @CreatedDate()
     private LocalDate createdDate = LocalDate.now();
 

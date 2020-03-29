@@ -1,9 +1,6 @@
 package pl.sw.gov.persondossier.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +10,7 @@ import javax.persistence.Table;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table
 public class Photo extends AbstractEntity {
@@ -25,5 +23,4 @@ public class Photo extends AbstractEntity {
 
     @Column(name = "picByte", length = 1000)
     private byte[] picByte;
-
-}
+    }
