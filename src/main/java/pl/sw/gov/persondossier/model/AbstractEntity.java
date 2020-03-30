@@ -8,9 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.Objects;
 
-@Data
-@MappedSuperclass
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
+@MappedSuperclass
 public abstract class AbstractEntity {
 
     @Id

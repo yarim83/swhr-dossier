@@ -2,7 +2,11 @@ package pl.sw.gov.persondossier.model;
 
 import lombok.*;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Error {
     int code;
     String message;

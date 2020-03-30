@@ -60,8 +60,8 @@ public class EmployeesController {
     }
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void update(@RequestBody Employees employees) {
+    @ResponseStatus(HttpStatus.OK)
+    public void update(@RequestBody @Valid Employees employees) {
         employeesRepository.save(employees);
     }
 
@@ -80,6 +80,7 @@ public class EmployeesController {
     }
 
     private Employees convertToEntity(EmployeesDto employeesDto) {
+        System.out.println(employeesDto.toString());
         Employees employees = new Employees();
 
         if (employeesDto.getDepartment_id() != null) {
@@ -87,6 +88,7 @@ public class EmployeesController {
             BeanUtils.copyProperties(employeesDto, employees, "department_id");
             employees.setDepartment(department);
         }
+        System.out.println(employees);
         return employees;
     }
 
